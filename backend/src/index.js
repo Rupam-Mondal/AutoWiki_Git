@@ -4,6 +4,7 @@ import cors from 'cors';
 import { serve } from "inngest/express";
 import { inngest, functions } from "./inngest/index.js"
 import indexRoutes from "./routes/index.routes.js"
+import chatRoutes from "./routes/chat.routes.js"
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors());
 
 app.use("/api/inngest", serve({ client: inngest, functions }));
 app.use("/api/index" , indexRoutes);
+app.use("/api/chat", chatRoutes);
 
 
 app.listen(3000 , () => {
